@@ -4,4 +4,51 @@
 
 <mapper namespace="com.library.dao.LibraryMapper">
 
+    <select id="select" parameterType="String" resultType="CustomerDto">
+        select cust_no,
+               cust_name,
+               phone,
+               join_date,
+               cust_email,
+               grade
+        from member_info
+        where cust_name =${cust_name};
+    </select>
+
+    <select id="selectAll" resultType="CustomerDto">
+        select cust_no,
+               cust_name,
+               phone,
+               join_date,
+               cust_email,
+               grade
+        from member_info;
+    </select>
+
+    <insert id="insert" parameterType="CustomerDto">
+        INSERT INTO member_info
+            (cust_name, phone, cust_email, grade)
+        VALUES
+            (#{cust_name}, #{phone}, #{cust_email}, #{grade});
+    </insert>
+
+    <delete id="deleteAll">
+        DELETE FROM member_info;
+    </delete>
+
+    <delete id="delete" parameterType="map">
+        DELETE FROM member_info
+        WHERE cust_no = #{cust_no} and cust_name = #{cust_name};
+    </delete>
+
+    <update id="update" parameterType="CustomerDto">
+        UPDATE member_info
+        SET   cust_name = #{cust_name}
+          , phone = #{phone}
+          , cust_email = #{cust_email}
+          , grade = #{grade}
+        WHERE cust_no = #{cust_no};
+    </update>
+
+
 </mapper>
