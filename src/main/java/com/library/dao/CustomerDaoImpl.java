@@ -16,8 +16,8 @@ public class CustomerDaoImpl implements CustomerDao{
     private static String namespace = "com.library.dao.LibraryMapper.";
 
     @Override
-    public CustomerDto selectByName(String cust_name) throws Exception{
-        return session.selectOne(namespace+"select", cust_name);
+    public CustomerDto selectByCustNo(int cust_no) throws Exception{
+        return session.selectOne(namespace+"selectByCustNo", cust_no);
     }
     @Override
     public List<CustomerDto> selectAll() throws Exception{

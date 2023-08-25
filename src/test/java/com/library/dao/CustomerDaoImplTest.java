@@ -6,13 +6,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-
-import java.util.List;
 
 import static org.junit.Assert.*;
 
-@WebAppConfiguration
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
 public class CustomerDaoImplTest {
@@ -22,9 +19,12 @@ public class CustomerDaoImplTest {
 
 
     @Test
-    public void selectTest() throws Exception{
-        CustomerDto customers = customerDao.selectByName("'Tommy'");
-        System.out.println(customers);
+    public void selectByCustNO() throws Exception{
+        int cust_no = customerDao.selectAll().get(0).getCust_no();
+        System.out.println(cust_no);
+
+        CustomerDto customerDto = customerDao.selectByCustNo(cust_no);
+        System.out.println(customerDto);
     }
     @Test
     public void selectAll() throws Exception{
@@ -43,8 +43,17 @@ public class CustomerDaoImplTest {
     // 삭제, 전체삭제, 수정 테스트
     @Test
     public void delete() throws Exception{
-        int rowCnt = customerDao.delete(100004, "ggg");
+        customerDao.deleteAll();
+        CustomerDto customerDto = new CustomerDto("ghfj","010-1234-1234","aaa@naver.com","P");
+        int rowCnt = customerDao.insert(customerDto);
         assertTrue(rowCnt == 1);
+
+
+        int cust_no = customerDao.selectAll().get(0).getCust_no();
+        String cust_name = customerDao.selectAll().get(0).getCust_name();
+
+        int rowCnt2 = customerDao.delete(cust_no, cust_name);
+        assertTrue(rowCnt2 == 1);
     }
     @Test
     public void deleteAll() throws Exception{
@@ -59,7 +68,6 @@ public class CustomerDaoImplTest {
         assertTrue(customerDao.insert(customerDto) == 1);
 
         int cust_no = customerDao.selectAll().get(0).getCust_no();
-
         customerDto.setCust_no(cust_no);
         customerDto.setPhone("010-2222-2222");
         customerDto.setCust_email("asdfasdf");

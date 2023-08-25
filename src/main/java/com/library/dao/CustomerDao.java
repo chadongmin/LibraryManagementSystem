@@ -5,7 +5,7 @@ import com.library.domain.CustomerDto;
 import java.util.List;
 
 public interface CustomerDao {
-    CustomerDto selectByName(String cust_name) throws Exception;
+    CustomerDto selectByCustNo(int cust_no) throws Exception;
 
     List<CustomerDto> selectAll() throws Exception;
 
