@@ -14,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
     CustomerDao customerDao;
 
     @Override
-    public CustomerDto readByCustNo(int cust_no) throws Exception{
+        public CustomerDto readByCustNo(int cust_no) throws Exception{
         return customerDao.selectByCustNo(cust_no)  ;
     }
 
