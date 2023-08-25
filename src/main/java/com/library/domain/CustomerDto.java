@@ -5,7 +5,8 @@ import java.util.Objects;
 
 
 public class CustomerDto {
-    private int cust_no;
+
+    private Integer cust_no;
     private String cust_name;
     private String phone;
     private Date join_date;

@@ -19,30 +19,31 @@
 <div>
     <h1 class="text-center">도서관 고객 & 대여 관리 프로그램</h1>
 </div>
-<div class="p-2 g-col-6">
-    <ul class="nav justify-content-center">
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li> -->
-        <li class="nav-item">
-            <a class="nav-link" href="#">고객 등록</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<c:url value ='/library/list'></c:url>">고객 목록 조회/수정</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">고객 대여 금액 조회</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">홈으로</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li> -->
-    </ul>
+<div class="table_wrap">
+
+    <table class="table table-bordered">
+        <tr>
+            <th>고객번호</th>
+            <th>고객이름</th>
+            <th>전화번호</th>
+            <th>가입일자</th>
+            <th>이메일</th>
+            <th>고객등급</th>
+        </tr>
+        <c:forEach var="CustomerDto" items="${list}">
+            <tr>
+                <td><a href="<c:url value = '/library/read?cust_no=${CustomerDto.cust_no}'/>">${CustomerDto.cust_no}<a/></td>
+                <td>${CustomerDto.cust_name}</td>
+                <td>${CustomerDto.phone}</td>
+                <td>${CustomerDto.join_date}</td>
+                <td>${CustomerDto.cust_email}</td>
+                <td>${CustomerDto.grade}</td>
+            </tr>
+        </c:forEach>
+    </table>
 </div>
-<div class="p-2 g-col-6">
-    <img src="https://t4.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/1eVm/image/6iqt7OdtHCOehiLSNDzfLbLk-QM.jpg" class="rounded mx-auto d-block" alt="...">
+
+
 </div>
 <div class="p-2 g-col-6">
     <footer>

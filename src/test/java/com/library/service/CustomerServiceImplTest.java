@@ -35,7 +35,7 @@ public class CustomerServiceImplTest {
 
     @Test
     public void register() throws Exception {
-        CustomerDto customerDto = new CustomerDto("qqq", "010-0000-0000", "111@naver.com", "P");
+        CustomerDto customerDto = new CustomerDto("아이유", "010-1234-1234", "111@naver.com", "P");
         int rowCnt = customerService.register(customerDto);
         assertTrue(rowCnt==1);
     }
