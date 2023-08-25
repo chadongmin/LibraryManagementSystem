@@ -4,7 +4,7 @@
 
 <mapper namespace="com.library.dao.LibraryMapper">
 
-    <select id="select" parameterType="String" resultType="CustomerDto">
+    <select id="selectByCustNo" parameterType="String" resultType="CustomerDto">
         select cust_no,
                cust_name,
                phone,
@@ -12,7 +12,7 @@
                cust_email,
                grade
         from member_info
-        where cust_name =${cust_name};
+        where cust_no =${cust_no};
     </select>
 
     <select id="selectAll" resultType="CustomerDto">
