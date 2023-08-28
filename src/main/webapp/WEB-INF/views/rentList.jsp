@@ -54,20 +54,18 @@
     <table class="table table-bordered">
         <tr>
             <th>고객번호</th>
-            <th>고객이름</th>
-            <th>전화번호</th>
-            <th>가입일자</th>
-            <th>이메일</th>
-            <th>고객등급</th>
+            <th>대여번호</th>
+            <th>도서코드</th>
+            <th>대여금액</th>
+            <th>대여일자</th>
         </tr>
-        <c:forEach var="CustomerDto" items="${list}">
+        <c:forEach var="rentDto" items="${list}">
             <tr>
-                <td><a href="<c:url value = '/modify?cust_no=${CustomerDto.cust_no}'/>">${CustomerDto.cust_no}<a/></td>
-                <td>${CustomerDto.cust_name}</td>
-                <td>${CustomerDto.phone}</td>
-                <td>${CustomerDto.join_date}</td>
-                <td>${CustomerDto.cust_email}</td>
-                <td>${CustomerDto.grade}</td>
+                <td>${rentDto.cust_no}</td>
+                <td>${rentDto.rent_no}</td>
+                <td>${rentDto.book_code}</td>
+                <td>${rentDto.rent_price}</td>
+                <td>${rentDto.rent_date}</td>
             </tr>
         </c:forEach>
     </table>

@@ -25,16 +25,19 @@
           <a class="nav-link active" aria-current="page" href="#">Active</a>
         </li> -->
         <li class="nav-item">
-            <a class="nav-link" href="#">고객 등록</a>
+            <a class="nav-link" href="<c:url value ='/write'/>">고객 등록</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<c:url value ='/library/list'></c:url>">고객 목록 조회/수정</a>
+            <a class="nav-link" href="<c:url value ='/list'></c:url>">고객 목록 조회/수정</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<c:url value ='/rent-list'></c:url>">고객 대여 리스트</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">고객 대여 금액 조회</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">홈으로</a>
+            <a class="nav-link" href="/library">홈으로</a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
