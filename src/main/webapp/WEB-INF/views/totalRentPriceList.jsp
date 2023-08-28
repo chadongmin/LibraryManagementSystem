@@ -55,19 +55,16 @@
         <tr>
             <th>고객번호</th>
             <th>고객이름</th>
-            <th>전화번호</th>
-            <th>가입일자</th>
-            <th>이메일</th>
             <th>고객등급</th>
+            <th>총대여금액</th>
+
         </tr>
-        <c:forEach var="CustomerDto" items="${list}">
+        <c:forEach var="customerDto"  items="${customerDtoList}">
             <tr>
-                <td><a href="<c:url value = '/modify?cust_no=${CustomerDto.cust_no}'/>">${CustomerDto.cust_no}<a/></td>
-                <td>${CustomerDto.cust_name}</td>
-                <td>${CustomerDto.phone}</td>
-                <td>${CustomerDto.join_date}</td>
-                <td>${CustomerDto.cust_email}</td>
-                <td>${CustomerDto.grade}</td>
+                <td>${customerDto.cust_no}</td>
+                <td>${customerDto.cust_name}</td>
+                <td>${customerDto.grade}</td>
+                <td>${customerDto.total_rent_price}</td>
             </tr>
         </c:forEach>
     </table>

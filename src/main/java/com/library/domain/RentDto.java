@@ -9,6 +9,7 @@ public class RentDto {
     private String book_code;
     private Integer rent_price;
     private Date rent_date;
+    private Integer total_rent_price;
 
     public RentDto() {
     }
@@ -18,6 +19,14 @@ public class RentDto {
         this.rent_no = rent_no;
         this.book_code = book_code;
         this.rent_price = rent_price;
+    }
+
+    public Integer getTotal_rent_price() {
+        return total_rent_price;
+    }
+
+    public void setTotal_rent_price(Integer total_rent_price) {
+        this.total_rent_price = total_rent_price;
     }
 
     public Integer getCust_no() {
@@ -68,6 +77,8 @@ public class RentDto {
                 ", book_code='" + book_code + '\'' +
                 ", rent_price=" + rent_price +
                 ", rent_date=" + rent_date +
+                ", total_rent_price=" + total_rent_price +
                 '}';
     }
 }
+

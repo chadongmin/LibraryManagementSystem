@@ -26,7 +26,7 @@ public class LibraryController {
     @Autowired
     RentService rentService;
 
-    @GetMapping("modify")
+    @GetMapping("/modify")
     public String modify(CustomerDto customerDto, Integer cust_no, Model m){
         //수정화면 jsp 파일에서 placeholder와 비슷한 default값을 주기 위해서는 (input 태그에 값이 미리 입력되어 있도록) readByCustid를 해서 값을 넘겨줘야 한다.
         try {
@@ -43,7 +43,7 @@ public class LibraryController {
         return "customerRegister";
     }
 
-    @PostMapping("modify")
+    @PostMapping("/modify")
     public String modify(Integer cust_no, CustomerDto customerDto, Model m, RedirectAttributes rattr, HttpServletRequest request)  {
         try {
             customerDto.setCust_no(cust_no);
@@ -58,6 +58,25 @@ public class LibraryController {
 
         return "redirect:/list";
     }
+    @GetMapping("/rent-price-list")
+    public String rentPriceList(RentDto rentDto,CustomerDto customerDto, Model m){
+        try {
+            List<RentDto> list = rentService.readTotalRentPrice();
+
+            List<CustomerDto> customerDtoList = customerService.readAll();
+            for (int i = 0; i <list.size() ; i++) {
+                customerDtoList.get(i).setTotal_rent_price(list.get(i).getTotal_rent_price());
+            }
+            System.out.println(customerDtoList);
+            m.addAttribute(customerDtoList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "totalRentPriceList";
+    }
+
+
     @GetMapping("rent-list")
     public String rentList(Model m){
         try {

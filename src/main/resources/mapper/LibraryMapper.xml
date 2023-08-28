@@ -59,6 +59,12 @@
         from rent_info;
     </select>
 
+    <select id="selectTotalRentPrice" resultType="RentDto">
+        select cust_no, SUM(rent_price) AS total_rent_price
+        from rent_info
+        GROUP BY cust_no;
+    </select>
+
 
 
 </mapper>

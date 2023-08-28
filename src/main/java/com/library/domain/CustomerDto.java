@@ -12,6 +12,16 @@ public class CustomerDto {
     private Date join_date;
     private String cust_email;
     private String grade;
+    private Integer total_rent_price;
+
+    public Integer getTotal_rent_price() {
+        return total_rent_price;
+    }
+
+
+    public void setTotal_rent_price(Integer total_rent_price) {
+        this.total_rent_price = total_rent_price;
+    }
 
     public CustomerDto() {
     }
@@ -86,13 +96,14 @@ public class CustomerDto {
 
     @Override
     public String toString() {
-        return "CustomerDTO{" +
+        return "CustomerDto{" +
                 "cust_no=" + cust_no +
                 ", cust_name='" + cust_name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", join_date=" + join_date +
                 ", cust_email='" + cust_email + '\'' +
                 ", grade='" + grade + '\'' +
+                ", total_rent_price=" + total_rent_price +
                 '}';
     }
 }

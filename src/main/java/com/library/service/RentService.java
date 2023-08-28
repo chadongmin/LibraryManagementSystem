@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RentService {
     List<RentDto> readAll() throws Exception;
+
+    List<RentDto> readTotalRentPrice() throws Exception;
 }

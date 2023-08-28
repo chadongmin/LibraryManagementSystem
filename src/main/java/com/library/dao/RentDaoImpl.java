@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class RentDaoImpl implements RentDao {
@@ -16,6 +17,11 @@ public class RentDaoImpl implements RentDao {
     @Override
     public List<RentDto> selectAll() throws Exception{
         return session.selectList(namespace+"selectRentAll");
+    }
+
+    @Override
+    public List<RentDto> selectTotalRentPrice() throws Exception{
+        return session.selectList(namespace+"selectTotalRentPrice");
     }
 
 }
