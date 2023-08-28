@@ -39,7 +39,7 @@
             <a class="nav-link" href="<c:url value ='/rent-list'></c:url>">고객 대여 리스트</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/rent-price-list">고객 대여 금액 조회</a>
+            <a class="nav-link" href="<c:url value ='/rent-price-list'></c:url>">고객 대여 금액 조회</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/library">홈으로</a>
